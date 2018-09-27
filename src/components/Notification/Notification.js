@@ -96,8 +96,7 @@ class Notification extends Component {
     const emitter = NotificationManager.getEmitter();
     this.subscription = emitter.addListener('new-notification', (notification) => {
       const withoutRepeated = this.state.notifications.filter((existingNotifications) => (
-        notification.type !== existingNotifications.type ||
-        notification.message !== existingNotifications.message
+        notification.type !== existingNotifications.type
       ));
 
       notification.time = (new Date()).getTime();

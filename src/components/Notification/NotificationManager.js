@@ -21,7 +21,6 @@ class NotificationManager {
 }
 
 const addNotification = (type, message, title) => {
-  console.log('SOOOOO??');
   emitter.emit('new-notification', {
     type,
     message,
