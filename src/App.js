@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import Header from './components/Header';
+import Breadcrumbs from './components/Breadcrumbs';
 import Container from './components/Container';
 import ContentArea from './components/ContentArea';
 import CraftedByLogo from './components/CraftedByLogo';
+import Header from './components/Header';
 import Notification from './components/Notification/Notification';
 import NotificationManager from './components/Notification/NotificationManager';
 import Presentation from './components/Presentation';
@@ -26,6 +27,7 @@ class App extends Component {
             <CraftedByLogo/>
           </ContentArea>
         </Header>
+        <Breadcrumbs />
         <Presentation
           title="Introduction"
           actionLabel="Next"
