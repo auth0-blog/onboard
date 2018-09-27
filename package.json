@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-web": "^2.3.0",
+    "axios": "^0.18.0",
+    "d3": "^5.7.0",
+    "email-validator": "^2.0.4",
     "fbemitter": "^2.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-dragscroll": "^2.0.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.0",
     "styled-components": "^3.4.9"
   },

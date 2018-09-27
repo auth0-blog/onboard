@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import Breadcrumbs from './components/Breadcrumbs';
-import Container from './components/Container';
-import ContentArea from './components/ContentArea';
-import CraftedByLogo from './components/CraftedByLogo';
-import Header from './components/Header';
-import Notification from './components/Notification/Notification';
-import NotificationManager from './components/Notification/NotificationManager';
 import Presentation from './components/Presentation';
+import withOnboardService from './components/withOnboardService';
 
 const NextSectionLink = styled.a`
   color: #555;
@@ -18,38 +12,31 @@ const NextSectionLink = styled.a`
 
 class App extends Component {
   render() {
+    const actionLabel = this.props.authenticated ? 'Next' : 'Sign In';
+    const action = this.props.authenticated ? this.props.moveForward : () => {this.props.auth0Client.signIn()};
     return (
-      <Container>
-        <Notification />
-        <Header>
-          <ContentArea>
-            <h1>The Guest Author Program</h1>
-            <CraftedByLogo/>
-          </ContentArea>
-        </Header>
-        <Breadcrumbs />
-        <Presentation
-          title="Introduction"
-          actionLabel="Next"
-          action={() => { NotificationManager.warning('cooooooool') }}
-        >
+      <Presentation
+        title="Introduction"
+        actionLabel={actionLabel}
+        action={action}
+      >
+        <p>
+          The present website exists to help on the onboard process of the Guest Author Program.
+        </p>
+        {
+          !this.props.authenticated &&
+          <p>If you want to apply to this program, just click on the <em>Sign In</em> button to get started.</p>
+        }
+        {
+          this.props.authenticated &&
           <p>
-            The present website exists to help on the onboard process of the Guest Author Program.
+            As you are already authenticated, move to <NextSectionLink onClick={() => {
+          }}>the next section</NextSectionLink> to get started.
           </p>
-          {
-            !this.props.authenticated &&
-            <p>If you want to apply to this program, just click on the <em>Sign In</em> button to get started.</p>
-          }
-          {
-            this.props.authenticated &&
-            <p>
-              As you are already authenticated, move to <NextSectionLink onClick={() => {}}>the next section</NextSectionLink> to get started.
-            </p>
-          }
-        </Presentation>
-      </Container>
+        }
+      </Presentation>
     );
   }
 }
 
-export default App;
+export default withOnboardService(App);
