@@ -2,14 +2,10 @@ import Auth0Web from 'auth0-web';
 import validator from 'email-validator';
 import {withRouter} from 'react-router';
 import React from 'react';
-import Breadcrumbs from '../components/Breadcrumbs';
-import Container from '../components/Container';
-import ContentArea from '../components/ContentArea';
-import CraftedByLogo from '../components/CraftedByLogo';
-import Header from '../components/Header';
 import NotificationManager from '../components/Notification/NotificationManager';
 import config from '../config/auth0';
 import OnboardClient from '../services/OnboardClient';
+import routes from '../services/Routes';
 
 const auth0Client = new Auth0Web({
   audience: config.audience,
@@ -62,8 +58,6 @@ export default (WrappedComponent) => {
       this.toggleCopyright = this.toggleCopyright.bind(this);
       this.togglePlagiarism = this.togglePlagiarism.bind(this);
       this.updateEmail = this.updateEmail.bind(this);
-
-      this.pagesOrder = ['/', '/authorship', '/copyright', '/plagiarism', '/agreement', '/payment', '/deadline', '/process', '/application'];
     }
 
     async componentDidMount() {
@@ -80,18 +74,18 @@ export default (WrappedComponent) => {
 
     stepBack() {
       const {pathname} = this.props.location;
-      const currentPosition = this.pagesOrder.indexOf(pathname);
+      const currentPosition = routes.map((route) => (route.path)).indexOf(pathname);
       if (currentPosition < 1) return;
 
-      this.props.history.push(`${this.pagesOrder[currentPosition - 1]}`);
+      this.props.history.push(`${routes[currentPosition - 1].path}`);
     }
 
     moveForward() {
       const {pathname} = this.props.location;
-      const currentPosition = this.pagesOrder.indexOf(pathname);
-      if (currentPosition === this.pagesOrder - 1) return;
+      const currentPosition = routes.map((route) => (route.path)).indexOf(pathname);
+      if (currentPosition === routes - 1) return;
 
-      this.props.history.push(`${this.pagesOrder[currentPosition + 1]}`);
+      this.props.history.push(`${routes[currentPosition + 1].path}`);
     }
 
     apply() {
@@ -128,38 +122,29 @@ export default (WrappedComponent) => {
     }
 
     signOut() {
-      auth0Client.signOut('/');
+      auth0Client.signOut(window.location.origin);
     }
 
     render() {
       const {agreeCopyright, agreePlagiarism, authenticated, profile, email} = this.state;
       return (
-        <Container>
-          <Header>
-            <ContentArea>
-              <h1>The Guest Author Program</h1>
-              <CraftedByLogo/>
-            </ContentArea>
-          </Header>
-          <Breadcrumbs/>
-          <WrappedComponent
-            agreeCopyright={agreeCopyright}
-            agreePlagiarism={agreePlagiarism}
-            auth0Client={auth0Client}
-            authenticated={authenticated}
-            moveForward={this.moveForward}
-            email={email}
-            profile={profile}
-            stepBack={this.stepBack}
-            apply={this.apply}
-            signOut={this.signOut}
-            toggleCopyright={this.toggleCopyright}
-            togglePlagiarism={this.togglePlagiarism}
-            updateEmail={this.updateEmail}
-          >
-            {this.props.children}
-          </WrappedComponent>
-        </Container>
+        <WrappedComponent
+          agreeCopyright={agreeCopyright}
+          agreePlagiarism={agreePlagiarism}
+          auth0Client={auth0Client}
+          authenticated={authenticated}
+          moveForward={this.moveForward}
+          email={email}
+          profile={profile}
+          stepBack={this.stepBack}
+          apply={this.apply}
+          signOut={this.signOut}
+          toggleCopyright={this.toggleCopyright}
+          togglePlagiarism={this.togglePlagiarism}
+          updateEmail={this.updateEmail}
+        >
+          {this.props.children}
+        </WrappedComponent>
       )
     }
   });

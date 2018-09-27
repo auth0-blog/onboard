@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import ContentArea from './ContentArea';
+import routes from '../services/Routes';
 
 const BreadcrumbsArea = ContentArea.extend`
   margin-bottom: -15px;
@@ -25,59 +27,18 @@ function Breadcrumbs() {
   return (
     <BreadcrumbsArea>
       <BreadcrumbsList>
-        <li>
-          <a href="/">
-            Introduction
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/authorship">
-            Authorship
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/copyright">
-            Copyright
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/plagiarism">
-            Plagiarism
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/agreement">
-            Agreement
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/payment">
-            Payment
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/deadline">
-            Deadline
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/process">
-            Process
-          </a>
-        </li>
-        <li>></li>
-        <li>
-          <a href="/application">
-            Application
-          </a>
-        </li>
+        {
+          routes.map((route, idx) => (
+            <Fragment key={idx}>
+              <li>
+                <Link to={route.path}>
+                  {route.label}
+                </Link>
+              </li>
+              { idx < routes.length - 1 && <li>></li> }
+            </Fragment>
+          ))
+        }
       </BreadcrumbsList>
     </BreadcrumbsArea>
   );
