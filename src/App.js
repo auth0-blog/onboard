@@ -7,7 +7,7 @@ import CraftedByLogo from './components/CraftedByLogo';
 import Header from './components/Header';
 import Profile from './components/Profile';
 import routes from './services/Routes';
-import withOnboardService from "./components/withOnboardService";
+import withOnboardService from './components/withOnboardService';
 
 class App extends Component {
   render() {
@@ -23,7 +23,11 @@ class App extends Component {
         <Profile {...this.props} />
         {
           routes.map((route) => (
-            <Route exact path={route.path} component={route.component} key={route.path}/>
+            <Route
+              exact path={route.path}
+              component={route.component}
+              key={route.path}
+            />
           ))
         }
       </Container>

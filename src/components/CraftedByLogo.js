@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import deployment from '../config/deployment';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const LogoContainer = styled.div`
 function Logo() {
   return (
     <LogoContainer>
-      <img src="/logo-grey.png" alt="Auth0 Logo"/>
+      <img src={`${deployment.domain + deployment.prefix}/logo-grey.png`} alt="Auth0 Logo"/>
     </LogoContainer>
   );
 }

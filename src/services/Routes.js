@@ -1,3 +1,4 @@
+import deployment from '../config/deployment';
 import Introduction from '../routes/Introduction';
 import Authorship from '../routes/Authorship';
 import Copyright from '../routes/Copyright';
@@ -9,13 +10,13 @@ import Process from '../routes/Process';
 import Application from '../routes/Application';
 
 export default [
-  {label: 'Introduction', path: '/', component: Introduction},
-  {label: 'Authorship', path: '/authorship', component: Authorship},
-  {label: 'Copyright', path: '/copyright', component: Copyright},
-  {label: 'Plagiarism', path: '/plagiarism', component: Plagiarism},
-  {label: 'Acknowledgement', path: '/acknowledgement', component: Acknowledgement},
-  {label: 'Payment', path: '/payment', component: Payment},
-  {label: 'Deadline', path: '/deadline', component: Deadline},
-  {label: 'Process', path: '/process', component: Process},
-  {label: 'Application', path: '/application', component: Application},
+  {label: 'Introduction', path: deployment.prefix + '/', component: Introduction},
+  {label: 'Authorship', path: deployment.prefix + '/authorship', component: Authorship},
+  {label: 'Copyright', path: deployment.prefix + '/copyright', component: Copyright},
+  {label: 'Plagiarism', path: deployment.prefix + '/plagiarism', component: Plagiarism},
+  {label: 'Acknowledgement', path: deployment.prefix + '/acknowledgement', component: Acknowledgement},
+  {label: 'Payment', path: deployment.prefix + '/payment', component: Payment},
+  {label: 'Deadline', path: deployment.prefix + '/deadline', component: Deadline},
+  {label: 'Process', path: deployment.prefix + '/process', component: Process},
+  {label: 'Application', path: deployment.prefix + '/application', component: Application},
 ]

@@ -6,12 +6,13 @@ import NotificationManager from '../components/Notification/NotificationManager'
 import config from '../config/auth0';
 import OnboardClient from '../services/OnboardClient';
 import routes from '../services/Routes';
+import deployment from '../config/deployment';
 
 const auth0Client = new Auth0Web({
   audience: config.audience,
   domain: config.domain,
   clientID: config.clientID,
-  redirectUri: `${window.location.origin}/callback`,
+  redirectUri: deployment.domain + deployment.prefix,
   responseType: 'token id_token',
   scope: 'openid email profile',
 });
@@ -46,8 +47,6 @@ export default (WrappedComponent) => {
           profile,
           email,
         });
-
-        if (props.location.pathname === '/callback') props.history.push('/');
       });
 
       this.onboardClient = new OnboardClient(auth0Client);
@@ -122,7 +121,7 @@ export default (WrappedComponent) => {
     }
 
     signOut() {
-      auth0Client.signOut(window.location.origin);
+      auth0Client.signOut(deployment.domain + deployment.prefix);
     }
 
     render() {
