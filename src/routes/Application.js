@@ -19,11 +19,11 @@ function Application(props) {
       cancelLabel="Go Back"
     >
       <p>
-        To apply to the Guest Author program, you must agree to this terms and conditions. After that, Auth0
-        <strong> will send you a copy of these agreements and invite you to a Slack channel</strong>.
+        To apply to the Guest Author program, you must agree to the terms and conditions described in this website.
+        After that, Auth0 <strong> will send you a copy of these acknowledgements and invite you to a Slack channel</strong>.
       </p>
 
-      <p>Please, make sure that you have access to the email below, as the invitation and the agreements will be sent to it.</p>
+      <p>Please, make sure that you have access to the email below, as the invitation and the acknowledgements will be sent to it.</p>
 
       <p>
         <label htmlFor="name">Name:</label>

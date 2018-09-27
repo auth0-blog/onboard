@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Presentation from '../components/Presentation';
 import withOnboardService from '../components/withOnboardService';
 
-const AgreementContainer = styled.section`
+const AcknowledgementContainer = styled.section`
   label {
     line-height: 30px;
     display: block;
@@ -43,33 +43,33 @@ const AgreementContainer = styled.section`
   }
 `;
 
-function Agreement(props) {
+function Acknowledgement(props) {
   return (
     <Presentation
-      title="Agreement"
+      title="Acknowledgement"
       action={props.moveForward}
       actionLabel="Next"
       cancel={props.stepBack}
       cancelLabel="Go Back"
     >
-      <AgreementContainer>
-        <p>Regarding the copyright, do you agree not to publish the article elsewhere without Auth0's consent?</p>
+      <AcknowledgementContainer>
+        <p>Regarding the copyright, do you acknowledge not to publish the article elsewhere without Auth0's consent?</p>
         <label onClick={props.toggleCopyright}>
-              <span className={props.agreeCopyright ? 'checked' : ''}>
+              <span className={props.ackCopyright ? 'checked' : ''}>
                 <span>✔</span>
               </span>
-          Yes, <strong>I agree not to publish the article elsewhere</strong>.
+          Yes, <strong>I acknowledge that I can't publish the article elsewhere</strong>.
         </label>
-        <p>Regarding plagiarism, do you agree not to copy content from other resources without giving the due credits?</p>
+        <p>Regarding plagiarism, do you acknowledge not to copy content from other resources without giving the due credits?</p>
         <label onClick={props.togglePlagiarism}>
-              <span className={props.agreePlagiarism ? 'checked' : ''}>
+              <span className={props.ackPlagiarism ? 'checked' : ''}>
                 <span>✔</span>
               </span>
-          Yes, <strong>I agree not to commit plagiarism</strong>.
+          Yes, <strong>I acknowledge that I cannot commit plagiarism</strong>.
         </label>
-      </AgreementContainer>
+      </AcknowledgementContainer>
     </Presentation>
   );
 }
 
-export default withOnboardService(Agreement);
+export default withOnboardService(Acknowledgement);

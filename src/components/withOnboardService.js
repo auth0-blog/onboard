@@ -17,8 +17,8 @@ const auth0Client = new Auth0Web({
 });
 
 // not nice
-let agreeCopyright = false;
-let agreePlagiarism = false;
+let ackCopyright = false;
+let ackPlagiarism = false;
 
 export default (WrappedComponent) => {
   return withRouter(class extends React.Component {
@@ -33,8 +33,8 @@ export default (WrappedComponent) => {
         authenticated,
         profile,
         email,
-        agreeCopyright,
-        agreePlagiarism,
+        ackCopyright,
+        ackPlagiarism,
       };
 
       auth0Client.subscribe((authenticated) => {
@@ -102,16 +102,16 @@ export default (WrappedComponent) => {
     }
 
     toggleCopyright() {
-      agreeCopyright = !this.state.agreeCopyright;
+      ackCopyright = !this.state.ackCopyright;
       this.setState({
-        agreeCopyright,
+        ackCopyright,
       });
     }
 
     togglePlagiarism() {
-      agreePlagiarism = !this.state.agreePlagiarism;
+      ackPlagiarism = !this.state.ackPlagiarism;
       this.setState({
-        agreePlagiarism,
+        ackPlagiarism,
       });
     }
 
@@ -126,11 +126,11 @@ export default (WrappedComponent) => {
     }
 
     render() {
-      const {agreeCopyright, agreePlagiarism, authenticated, profile, email} = this.state;
+      const {ackCopyright, ackPlagiarism, authenticated, profile, email} = this.state;
       return (
         <WrappedComponent
-          agreeCopyright={agreeCopyright}
-          agreePlagiarism={agreePlagiarism}
+          ackCopyright={ackCopyright}
+          ackPlagiarism={ackPlagiarism}
           auth0Client={auth0Client}
           authenticated={authenticated}
           moveForward={this.moveForward}
