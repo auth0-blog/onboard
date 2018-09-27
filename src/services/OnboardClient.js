@@ -11,10 +11,10 @@ export default class OnboardClient {
     };
 
     if (this.auth0Client.isAuthenticated()) {
-      headers['Authorization'] = `Bearer ${this.auth0Client.getAccessToken()}`;
+      headers['Authorization'] = `Bearer ${this.auth0Client.getIdToken()}`;
     }
 
-    return axios('/api/', {
+    return axios('https://wt-76ea40cbf67675babe924eecf167b9b8-0.sandbox.auth0-extend.com/webtask', {
       method: 'POST',
       headers,
       body: JSON.stringify({ name, email, userId })

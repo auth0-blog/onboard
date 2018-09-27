@@ -13,8 +13,8 @@ function Application(props) {
   return (
     <Presentation
       title="Application"
-      action={props.moveForward}
-      actionLabel="Next"
+      action={props.apply}
+      actionLabel="Apply"
       cancel={props.stepBack}
       cancelLabel="Go Back"
     >
