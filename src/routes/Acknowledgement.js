@@ -53,14 +53,14 @@ function Acknowledgement(props) {
       cancelLabel="Go Back"
     >
       <AcknowledgementContainer>
-        <p>Regarding the copyright, do you acknowledge not to publish the article elsewhere without Auth0's consent?</p>
+        <p>Regarding the copyright, do you acknowledge that you cannot publish the article elsewhere without Auth0's consent?</p>
         <label onClick={props.toggleCopyright}>
               <span className={props.ackCopyright ? 'checked' : ''}>
                 <span>✔</span>
               </span>
           Yes, <strong>I acknowledge that I can't publish the article elsewhere</strong>.
         </label>
-        <p>Regarding plagiarism, do you acknowledge not to copy content from other resources without giving the due credits?</p>
+        <p>Regarding plagiarism, do you acknowledge that you cannot copy content from other resources without giving the due credits?</p>
         <label onClick={props.togglePlagiarism}>
               <span className={props.ackPlagiarism ? 'checked' : ''}>
                 <span>✔</span>
