@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Container from './components/Container';
 import ContentArea from './components/ContentArea';
 import CraftedByLogo from './components/CraftedByLogo';
+import Notification from './components/Notification/Notification';
+import NotificationManager from './components/Notification/NotificationManager';
 import Presentation from './components/Presentation';
 
 const NextSectionLink = styled.a`
@@ -17,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <Container>
+        <Notification />
         <Header>
           <ContentArea>
             <h1>The Guest Author Program</h1>
@@ -26,7 +29,7 @@ class App extends Component {
         <Presentation
           title="Introduction"
           actionLabel="Next"
-          action={() => {}}
+          action={() => { NotificationManager.warning('cooooooool') }}
         >
           <p>
             The present website exists to help on the onboard process of the Guest Author Program.
