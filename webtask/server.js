@@ -4,6 +4,8 @@ const express = require('express');
 const jwksRsa = require('jwks-rsa');
 const jwt = require('express-jwt');
 const mandrill = require('mandrill-api/mandrill');
+const config = require('./config');
+
 const mandrillClient = new mandrill.Mandrill(process.env.MANDRILL_TOKEN);
 
 const app = new express();
@@ -20,7 +22,7 @@ app.use((req, res, next) => {
       jwksRequestsPerMinute: 5,
       jwksUri: `${issuer}.well-known/jwks.json`
     }),
-    audience: 'HPzKOMp0LP4k30TJwIDB74T5GWHYuAQq',
+    audience: config.audience,
     issuer: issuer,
     algorithms: [ 'RS256' ]
   })(req, res, next);

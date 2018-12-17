@@ -1,4 +1,5 @@
 import axios from 'axios';
+import deployment from '../config/deployment';
 
 export default class OnboardClient {
   constructor(auth0Client) {
@@ -14,7 +15,7 @@ export default class OnboardClient {
       headers['Authorization'] = `Bearer ${this.auth0Client.getIdToken()}`;
     }
 
-    return axios('https://wt-76ea40cbf67675babe924eecf167b9b8-0.sandbox.auth0-extend.com/webtask', {
+    return axios(deployment.backendURL, {
       method: 'POST',
       headers,
       body: JSON.stringify({ name, email, userId })
