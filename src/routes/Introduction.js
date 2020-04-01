@@ -20,7 +20,7 @@ function Introduction(props) {
       action={action}
     >
       <p>
-        The present website exists to help on the onboard process of the Guest Author Program.
+        The present website exists to help with the onboard process of the Guest Author Program.
       </p>
       {
         !props.authenticated &&
