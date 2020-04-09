@@ -17,7 +17,7 @@ function Deadline(props) {
       <p>
         Although most authors manage to produce <strong>an article within two or three weeks</strong>, Auth0 knows
         that authors have other duties and that they can get stuck with other important matters. Therefore, it
-        won't be a problem if an author take a little longer.
+        won't be a problem if an author takes a little longer.
       </p>
       <p>Just be careful not to end up with an unfinished article that becomes old news.</p>
     </Presentation>
