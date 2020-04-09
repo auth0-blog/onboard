@@ -12,13 +12,13 @@ function Plagiarism(props) {
       cancelLabel="Go Back"
     >
       <p>
-        Plagiarism is an extremelly important subject. Authors must be aware that <strong>committing plagiarism is
+        Plagiarism is an extremely important subject. Authors must be aware that <strong>committing plagiarism is
         prohibited</strong>. To protect itself, Auth0 uses modern plagiarism checkers like <a href="https://www.quetext.com/">Quetext </a>
         and <a href="https://www.grammarly.com/">
         Grammarly</a> to check articles.
       </p>
       <p>
-        Authors that copy excerpt from exist resources without adding credits, will no longer be able to participate
+        Authors that copy an excerpt from existing resources without adding credits will no longer be able to participate
         in the program.
       </p>
     </Presentation>

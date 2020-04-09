@@ -13,11 +13,11 @@ const Canvas = styled.svg`
 
 const Step = styled.g`
   opacity: 0.3;
-  
+
   :hover {
     cursor: pointer;
   }
-  
+
   &.active {
     opacity: 1;
   }
@@ -31,7 +31,7 @@ const Box = styled.rect`
 
 const DraggableArea = styled(DragScroll)`
   cursor: default;
-  
+
   @media (max-width: 700px) {
     cursor: grab;
   }
@@ -98,10 +98,6 @@ class Process extends Component {
     this.state = {
       steps: [
         { title: 'Topic Definition', active: true, description: 'The Guest Author (GA) and Auth0 define a topic together.' },
-        { title: 'Prototype Development', active: false, description: 'The GA develops a prototype with the chosen technologies and upload it to a GitHub repo with basic instructions on how to run it.' },
-        { title: 'Prototype Review', active: false, description: 'Auth0 analyses the prototype, the code, and the whole implementation and approach to provide feedback.' },
-
-        { title: 'Prototype Refactoring', active: false, description: 'The GA applies (if needed) any fix/enhancement asked by Auth0.' },
         { title: 'Outline Definition', active: false, description: 'The GA shares an outline of the article (just the main structure with headers and sub-headers, no content needed).' },
         { title: 'Outline Review', active: false, description: 'Auth0 analyses and make comments on the outline.' },
 
@@ -142,7 +138,7 @@ class Process extends Component {
         cancelLabel="Go Back"
       >
         <p>
-          From ideation to publishment, the process of writing to the Guest Author Program consist of the following steps:
+          From ideation to publishment, the process of writing to the Guest Author Program consists of the following steps:
         </p>
         <DraggableArea height="460px" width="100%">
           <Canvas>
