@@ -5,7 +5,7 @@
   "homepage": "https://auth0-blog.github.io/onboard",
   "dependencies": {
     "auth0-web": "^2.3.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "d3": "^5.7.0",
     "email-validator": "^2.0.4",
     "fbemitter": "^2.1.1",
