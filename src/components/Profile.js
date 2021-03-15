@@ -37,7 +37,7 @@ function Profile(props) {
           <img src={profilePicture} alt="Author Profile"/>
           {props.profile.name}
         </div>
-        <DefaultButton onClick={() => props.signOut()}>Sair</DefaultButton>
+        <DefaultButton onClick={() => props.signOut()}>Exit</DefaultButton>
       </ProfileCard>
       }
     </ContainerArea>
